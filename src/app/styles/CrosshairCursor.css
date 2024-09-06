@@ -1,0 +1,21 @@
+.crosshair {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+  
+  .crosshair-line {
+    background-color: #cecece; /* Lighter cursor color */
+  }
+  
+  .crosshair-line-vertical {
+    width: 2px;
+    height: 30px; /* Vertical line of the crosshair */
+  }
+  
+  .crosshair-line-horizontal {
+    width: 30px; /* Horizontal line of the crosshair */
+    height: 2px;
+  }
+  
