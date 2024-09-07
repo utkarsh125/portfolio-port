@@ -88,6 +88,8 @@ const AboutPage: React.FC = () => {
           Whether it&apos;s designing intuitive user interfaces, optimizing backend
           systems, or crafting intelligent models, I&apos;m dedicated to delivering
           solutions that make a real impact.
+
+          In my spare time, I capture photographs, play videogames and write - unless a side project piques my interest.
         </p>
 
         <div className="w-full flex items-center gap-2 justify-start mt-10">
@@ -100,7 +102,7 @@ const AboutPage: React.FC = () => {
               Let&apos;s connect!
             </span>
           </Link>
-          <Link href={`https://linkedin.com/in/utkarsh125`}>
+          <Link href={`https://drive.google.com/file/d/1AkKeT33vHiebP0_3NEIEhQeCPfxyxJw2/view?usp=sharing`}>
             <span
               ref={buttonRef}
               className="px-6 py-2.5 flex items-center gap-1 rounded-full bg-red-500 text-white hover:text-white hover:bg-black transition-colors duration-300 text-lg md:text-xl"
