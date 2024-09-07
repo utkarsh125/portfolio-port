@@ -1,67 +1,151 @@
 import React, { useEffect, useRef } from 'react';
 
-import Image from 'next/image';
+import Link from 'next/link'; // Import Next.js Link
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: 'Project 1',
-    description: 'A brief description of project 1',
-    image: '/path-to-image1.png',
+    name: 'DigitalHippo',
+    description: 'Ecommerce Application',
+    link: 'https://github.com/example/chameleon',
   },
   {
-    title: 'Project 2',
-    description: 'A brief description of project 2',
-    image: '/path-to-image2.png',
+    name: 'Allergen Based Diet Suggestor',
+    description: 'Meal plans based on Allergies',
+    link: 'https://github.com/example/nothing',
   },
-  // Add more project objects as needed
+  {
+    name: 'Travel App',
+    description: 'A simple interface for travel',
+    link: 'https://github.com/example/standartio',
+  },
+  {
+    name: 'Hand Sign Recognition',
+    description: 'A CNN Model to detect and identify hand signs',
+    link: 'https://github.com/example/podcast',
+  },
+  {
+    name: 'SimplyNote',
+    description: 'A notetaking application with privacy',
+    link: 'https://github.com/example/mockupiato',
+  },
 ];
 
-const Projects: React.FC = () => {
-  const scrollContainer = useRef<HTMLDivElement>(null);
+const Projects = () => {
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]); // Handle multiple refs
 
   useEffect(() => {
-    const container = scrollContainer.current;
-    gsap.to(container, {
-      xPercent: -100 * (projects.length - 1),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: container,
-        pin: true,
-        scrub: 1,
-        end: () => `+=${container!.offsetWidth}`,
-        anticipatePin: 1,
-      },
+    projectRefs.current.forEach((ref, index) => {
+      if (ref) {
+        const delay = index * 0.2;
+
+        // Scale on hover
+        gsap.fromTo(
+          ref,
+          { scale: 1 },
+          {
+            scale: 1.05,
+            duration: 0.4,
+            ease: 'power1.inOut',
+            paused: true,
+            overwrite: true,
+            scrollTrigger: {
+              trigger: ref,
+              start: 'top center',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+
+        // Scale up on hover
+        ref.addEventListener('mouseenter', () => {
+          gsap.to(ref, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: 'power1.inOut',
+          });
+        });
+
+        ref.addEventListener('mouseleave', () => {
+          gsap.to(ref, {
+            scale: 1,
+            duration: 0.3,
+            ease: 'power1.inOut',
+          });
+        });
+
+        // Arrow elongation
+        const arrow = ref.querySelector('.arrow-svg') as SVGElement;
+        if (arrow) {
+          gsap.to(arrow, {
+            scaleX: 1.2,
+            duration: 0.2,
+            paused: true,
+            ease: 'power1.inOut',
+            scrollTrigger: {
+              trigger: ref,
+              start: 'top center',
+              toggleActions: 'play none none reverse',
+            },
+          });
+        }
+      }
     });
   }, []);
 
   return (
-    <section className="h-screen w-full relative overflow-hidden font-inter">
-      <div
-        ref={scrollContainer}
-        className="flex space-x-10 w-[400vw] h-full items-center"
-      >
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="w-[80vw] h-[80%] bg-gray-200 rounded-xl flex flex-col justify-center items-center shadow-lg p-6"
-          >
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={300}
-              height={200}
-              className="rounded-lg"
-            />
-            <h2 className="text-2xl font-bold mt-4">{project.title}</h2>
-            <p className="text-gray-600 mt-2">{project.description}</p>
-          </div>
-        ))}
+    <div className="w-full max-w-2xl mx-auto ">
+      <div className='flex justify-center flex-col items-center mb-20'>
+        <h1 className='text-6xl tracking-tighter'>Featured Projects</h1>
+        <p className='text-xl tracking-tight'>
+          check the entire <Link href={``} className='text-red-500 underline'>list of projects</Link> created by me.
+        </p>
       </div>
-    </section>
+      {projects.map((project, index) => (
+        <Link key={project.name} href={project.link} passHref>
+          <div
+            ref={(el) => {
+              projectRefs.current[index] = el;
+            }}
+            className="relative w-full flex items-center justify-between p-4 mb-4 hover:outline-1 hover:outline-dashed hover:outline-red-500 bg-gray-100 rounded-2xl group hover:bg-gray-200 transition-colors cursor-pointer h-28"
+          >
+            {/* Using flex-col for the text to ensure proper alignment */}
+            <div className="flex flex-col justify-between h-full ">
+              <span className="text-2xl tracking-tight text-gray-900 group-hover:text-red-500">
+                {project.name}
+              </span>
+              <span className="text-md text-gray-600">
+                {project.description}
+              </span>
+            </div>
+
+            {/* SVG Arrow Icon */}
+            <svg
+              className="arrow-svg text-gray-400 group-hover:text-gray-600 transition-transform duration-300"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              width="24"
+              height="24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+
+            {/* Optional Line animation */}
+            <div className="absolute left-0 w-0 h-0.5 bg-gray-600 transition-all line"></div>
+          </div>
+        </Link>
+      ))}
+    </div>
   );
 };
 

@@ -2,6 +2,7 @@
 
 // import { CrosshairCursor } from './components/CrosshairCursor'
 import Hero from './components/Hero'
+import Projects from './components/Projects'
 // import Projects from './components/Projects'
 import React from 'react'
 import Skills from './components/Skills'
@@ -13,8 +14,8 @@ const page = () => {
       {/* <CrosshairCursor /> */}
       <Hero />
       {/* <RubberBand /> */}
-      {/* <Skills /> */}
-      {/* <Projects /> */}
+      <Projects />
+      <Skills />
     </div>
   )
 }
