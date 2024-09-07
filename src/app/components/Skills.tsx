@@ -18,6 +18,7 @@ const icons: Icon[] = [
   { src: '/gsap-logo.png', alt: 'GSAP' },
   { src: '/python-logo.jpg', alt: 'Python' },
   { src: '/tensorflow-logo.jpg', alt: 'TensorFlow' },
+  { src: '/java-logo.png', alt: 'Java' },
   { src: '/obsidian.png', alt: 'Obsidian' },
   { src: '/notion.png', alt: 'Notion' },
 ];
@@ -63,7 +64,7 @@ const Skills: React.FC = () => {
         tools and technologies that I generally use for my <span className='text-red-500'>projects and notes.</span>
       </p> */}
       </div>
-      <div ref={carouselRef} className="skills-carousel flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-52">
+      <div ref={carouselRef} className="skills-carousel flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 my-20">
         {icons.map((icon, index) => (
           <div 
             key={index} 

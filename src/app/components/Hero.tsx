@@ -18,21 +18,19 @@ const Hero = () => {
   // Handle hover state for name
   const handleNameMouseEnter = () => {
     setIsHoveredName(true);
-    gsap.to(".hero-name", { scale: 1.2, duration: 0.2 });
   };
 
   const handleNameMouseLeave = () => {
     setIsHoveredName(false);
-    gsap.to(".hero-name", { scale: 1, duration: 0.2 });
   };
 
   // Handle hover state for "see info" link
   const handleLinkMouseEnter = () => {
-    gsap.to(".see-more", { scale: 1.2, duration: 0.2 });
+    // You can add other hover effects here if needed
   };
 
   const handleLinkMouseLeave = () => {
-    gsap.to(".see-more", { scale: 1, duration: 0.2 });
+    // You can add other hover effects here if needed
   };
 
   // Handle hover state for the curly line (sine wave effect)
@@ -74,10 +72,12 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="mt-72 mb-52">
+    <div className="mt-36 mb-52 px-4 sm:px-8 md:mt-48 lg:mt-72 lg:mb-52">
       {/* Top section with about me link */}
-      <div className="flex items-center text-gray-500 text-2xl">
-        <p>about me & other things I do</p>
+      <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 text-gray-500 text-xl sm:text-2xl">
+        <p className="text-center sm:text-left">
+          about me & other things I do
+        </p>
         <Link
           onMouseEnter={handleLinkMouseEnter}
           onMouseLeave={handleLinkMouseLeave}
@@ -86,13 +86,13 @@ const Hero = () => {
         >
           <p className="flex items-center gap-2">
             <ArrowRight className="ml-1" size={16} />
-            <span className="underline">see info</span>
+            <Link href={`/about`} className="underline">see info</Link>
           </p>
         </Link>
       </div>
 
       {/* Main hero text */}
-      <div className="text-6xl flex flex-col gap-5 font-inter tracking-tighter mt-5">
+      <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl flex flex-col gap-3 sm:gap-5 font-inter tracking-tighter mt-5 text-center sm:text-left">
         {/* Name with hover effect */}
         <p
           className="hero-name font-playfair"
@@ -101,14 +101,13 @@ const Hero = () => {
         >
           {isHoveredName ? japaneseName : englishName}
         </p>
-        <p className="text-3xl text-gray-600">
+        <p className="text-2xl sm:text-3xl text-gray-600">
           full stack developer & machine learning enthusiast.
         </p>
       </div>
 
-
       {/* SVG Curly Line Animation */}
-      <div className="mt-10">
+      <div className="mt-8 sm:mt-10 flex justify-center sm:justify-start">
         <svg
           className="curly-line"
           xmlns="http://www.w3.org/2000/svg"
@@ -125,6 +124,10 @@ const Hero = () => {
           />
         </svg>
       </div>
+
+      <h1 className="text-6xl tracking-tighter">
+      I love working on  side projects especially on applications that solve someone elses problem perfectly and not trying to be flexible to fit everyone needs.
+      </h1>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from './components/Footer'
 // import { CrosshairCursor } from './components/CrosshairCursor'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
@@ -16,6 +17,7 @@ const page = () => {
       {/* <RubberBand /> */}
       <Projects />
       <Skills />
+      <Footer />
     </div>
   )
 }

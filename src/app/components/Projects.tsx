@@ -10,12 +10,12 @@ const projects = [
   {
     name: 'DigitalHippo',
     description: 'Ecommerce Application',
-    link: 'https://github.com/example/chameleon',
+    link: 'https://github.com/utkarsh125/ecommerce-app',
   },
   {
     name: 'Allergen Based Diet Suggestor',
     description: 'Meal plans based on Allergies',
-    link: 'https://github.com/example/nothing',
+    link: 'https://github.com/utkarsh125/arcane-project',
   },
   {
     name: 'Travel App',
@@ -97,11 +97,11 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto ">
-      <div className='flex justify-center flex-col items-center mb-20'>
+    <div className="w-full max-w-2xl mx-auto mt-36 px-4 sm:px-8 md:mt-48">
+      <div className='flex justify-center flex-col gap-6 items-center mb-20'>
         <h1 className='text-6xl tracking-tighter'>Featured Projects</h1>
         <p className='text-xl tracking-tight'>
-          check the entire <Link href={``} className='text-red-500 underline'>list of projects</Link> created by me.
+          check the entire <Link href={`https://github.com/utkarsh125?tab=repositories`} className='text-red-500 underline'>list of projects</Link> created by me.
         </p>
       </div>
       {projects.map((project, index) => (
@@ -110,14 +110,14 @@ const Projects = () => {
             ref={(el) => {
               projectRefs.current[index] = el;
             }}
-            className="relative w-full flex items-center justify-between p-4 mb-4 hover:outline-1 hover:outline-dashed hover:outline-red-500 bg-gray-100 rounded-2xl group hover:bg-gray-200 transition-colors cursor-pointer h-28"
+            className="relative w-full flex gap-6 items-center justify-between p-4 mb-4 xs:mb-8 bg-gray-150 rounded-2xl group hover:bg-gray-200 transition-colors cursor-pointer h-28"
           >
             {/* Using flex-col for the text to ensure proper alignment */}
-            <div className="flex flex-col justify-between h-full ">
-              <span className="text-2xl tracking-tight text-gray-900 group-hover:text-red-500">
+            <div className="flex flex-col  justify-between h-full">
+              <span className="text-3xl text-gray-900 group-hover:text-red-500 tracking-widest font-[400]">
                 {project.name}
               </span>
-              <span className="text-md text-gray-600">
+              <span className="text-lg text-gray-600">
                 {project.description}
               </span>
             </div>
