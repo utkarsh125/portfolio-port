@@ -1,10 +1,8 @@
+"use client";
+
 import React, { useEffect, useRef } from 'react';
 
-import Link from 'next/link'; // Import Next.js Link
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { gsap } from 'gsap';
-
-gsap.registerPlugin(ScrollTrigger);
+import gsap from 'gsap';
 
 const projects = [
   {
@@ -20,131 +18,83 @@ const projects = [
   {
     name: 'Travel App',
     description: 'A simple interface for travel',
-    link: 'https://github.com/example/standartio',
+    link: 'https://github.com/utkarsh125/travel-app',
   },
   {
     name: 'Hand Sign Recognition',
     description: 'A CNN Model to detect and identify hand signs',
-    link: 'https://github.com/example/podcast',
+    link: 'https://github.com/utkarsh125/tensorflow-hand-sign-detection',
   },
   {
     name: 'SimplyNote',
     description: 'A notetaking application with privacy',
-    link: 'https://github.com/example/mockupiato',
+    link: 'https://github.com/utkarsh125/notetaking-app-mern',
+  },
+  {
+    name: 'GSAP Loader',
+    description: 'A loading overlay for dynamic websites',
+    link: 'https://github.com/utkarsh125/gsap-loader',
   },
 ];
 
 const Projects = () => {
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([]); // Handle multiple refs
+  const cardsRef = useRef<HTMLAnchorElement[]>([]); // Update to target anchor elements
 
   useEffect(() => {
-    projectRefs.current.forEach((ref, index) => {
-      if (ref) {
-        const delay = index * 0.2;
+    // GSAP hover animation for glow effect
+    cardsRef.current.forEach((card, index) => {
+      gsap.set(card, { backgroundColor: '#1a1a1a', color: '#cccccc' }); // Initial state
 
-        // Scale on hover
-        gsap.fromTo(
-          ref,
-          { scale: 1 },
-          {
-            scale: 1.05,
-            duration: 0.4,
-            ease: 'power1.inOut',
-            paused: true,
-            overwrite: true,
-            scrollTrigger: {
-              trigger: ref,
-              start: 'top center',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-
-        // Scale up on hover
-        ref.addEventListener('mouseenter', () => {
-          gsap.to(ref, {
-            scale: 1.05,
-            duration: 0.3,
-            ease: 'power1.inOut',
-          });
+      card?.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          backgroundColor: '#000000',
+          color: '#ffffff',
+          borderColor: 'rgba(255, 255, 255, 0.4)',
+          boxShadow: '0 0 15px rgba(255, 255, 255, 0.2)', // Add subtle glow
+          duration: 0.3,
         });
+      });
 
-        ref.addEventListener('mouseleave', () => {
-          gsap.to(ref, {
-            scale: 1,
-            duration: 0.3,
-            ease: 'power1.inOut',
-          });
+      card?.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          backgroundColor: '#1a1a1a',
+          color: '#cccccc',
+          borderColor: 'transparent',
+          boxShadow: 'none', // Remove glow effect
+          duration: 0.3,
         });
-
-        // Arrow elongation
-        const arrow = ref.querySelector('.arrow-svg') as SVGElement;
-        if (arrow) {
-          gsap.to(arrow, {
-            scaleX: 1.2,
-            duration: 0.2,
-            paused: true,
-            ease: 'power1.inOut',
-            scrollTrigger: {
-              trigger: ref,
-              start: 'top center',
-              toggleActions: 'play none none reverse',
-            },
-          });
-        }
-      }
+      });
     });
   }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto mt-36 px-4 sm:px-8 md:mt-48">
-      <div className='flex justify-center flex-col gap-6 items-center mb-20'>
-        <h1 className='text-6xl tracking-tighter'>Featured Projects</h1>
-        <p className='text-xl tracking-tight'>
-          check the entire <Link href={`https://github.com/utkarsh125?tab=repositories`} className='text-red-500 underline'>list of projects</Link> created by me.
-        </p>
-      </div>
+    <div className='flex justify-center items-center flex-col gap-4'>
+      <h1 className='text-6xl font-playfair'>://Projects</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 bg-black rounded-2xl">
       {projects.map((project, index) => (
-        <Link key={project.name} href={project.link} passHref>
-          <div
-            ref={(el) => {
-              projectRefs.current[index] = el;
-            }}
-            className="relative w-full flex gap-6 items-center justify-between p-4 mb-4 xs:mb-8 bg-gray-150 rounded-2xl group hover:bg-gray-200 transition-colors cursor-pointer h-28"
-          >
-            {/* Using flex-col for the text to ensure proper alignment */}
-            <div className="flex flex-col  justify-between h-full">
-              <span className="text-3xl text-gray-900 group-hover:text-red-500 tracking-widest font-[400]">
-                {project.name}
-              </span>
-              <span className="text-lg text-gray-600">
-                {project.description}
-              </span>
-            </div>
+        <a
+          key={index}
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="card p-6 rounded-lg bg-[#1a1a1a] text-[#cccccc] transition-all duration-300 hover:scale-105"
+          ref={(el) => {
+            if (el) cardsRef.current[index] = el; // Correctly assigning the element to ref array
+          }}
+          style={{
+            cursor: 'pointer',
+            position: 'relative', // Ensures the glow doesn't interfere
+            overflow: 'hidden',
+          }}
+        >
+          <h3 className="text-xl mb-3 tracking-tight">{project.name}</h3>
+          <p className='text-sm'>{project.description}</p>
 
-            {/* SVG Arrow Icon */}
-            <svg
-              className="arrow-svg text-gray-400 group-hover:text-gray-600 transition-transform duration-300"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              width="24"
-              height="24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-
-            {/* Optional Line animation */}
-            <div className="absolute left-0 w-0 h-0.5 bg-gray-600 transition-all line"></div>
-          </div>
-        </Link>
+          {/* Adding a subtle gradient glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 hover:opacity-25 rounded-lg transition-opacity duration-300" />
+        </a>
       ))}
+    </div>
     </div>
   );
 };
