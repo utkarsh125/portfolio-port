@@ -76,24 +76,18 @@ const Skills: React.FC = () => {
         {technologies.map((tech, index) => (
           <li
             key={index}
-            className="tech-item text-lg md:text-xl lg:text-2xl cursor-pointer relative"
+            className="tech-item flex items-center gap-2 text-lg md:text-xl lg:text-2xl relative"
             onMouseEnter={() => handleHover(index)}
             onMouseLeave={() => handleLeave(index)}
           >
-            {tech.name}
-            {isClient && (
-              <div
-                className={`icon-${index} hidden absolute -top-20 opacity-0 scale-50 transition-all`}
-              >
-                <Image
-                  src={tech.src}
-                  alt={tech.name}
-                  width={60}
-                  height={60}
-                  className="object-contain"
-                />
-              </div>
-            )}
+            <Image
+              src={tech.src}
+              alt={tech.name}
+              width={30} // Adjust this size to match the text size
+              height={30}
+              className="object-contain rounded-full"
+            />
+            <span>{tech.name}</span>
           </li>
         ))}
       </ul>

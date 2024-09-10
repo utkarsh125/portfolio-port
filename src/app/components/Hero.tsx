@@ -54,7 +54,7 @@ const Hero = () => {
     <div className="mt-20 mb-32 px-6 sm:px-10 md:mt-40 lg:mt-56 lg:mb-48">
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 text-gray-500 text-lg sm:text-xl">
         <p className="text-center sm:text-left">about me & other things I do</p>
-        <Link href="#info" className="see-more text-red-500 hover:underline flex items-center">
+        <Link href="/about" className="see-more text-red-500 hover:underline flex items-center">
           <ArrowRight className="ml-1" size={16} />
           <span className="underline">see info</span>
         </Link>
@@ -68,7 +68,7 @@ const Hero = () => {
         >
           {isHoveredName ? japaneseName : englishName}
         </p>
-        <p className="text-xl sm:text-2xl text-gray-600">
+        <p className="text-xl sm:text-2xl text-gray-600 tracking-tight">
           full stack developer & machine learning enthusiast.
         </p>
       </div>
