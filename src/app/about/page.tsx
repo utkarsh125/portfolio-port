@@ -64,7 +64,7 @@ const AboutPage: React.FC = () => {
       <div className="flex flex-col items-center">
         <div className="w-full max-w-4xl mb-12">
           <Image
-            src="/profile.png" // Replace with the actual path to your landscape image
+            src="/profile.png" 
             alt="Profile Image"
             layout="responsive"
             width={1600} // Aspect ratio width
@@ -102,7 +102,7 @@ const AboutPage: React.FC = () => {
               Let&apos;s connect!
             </span>
           </Link>
-          <Link href={`https://drive.google.com/file/d/1AkKeT33vHiebP0_3NEIEhQeCPfxyxJw2/view?usp=sharing`}>
+          <Link href={`https://drive.google.com/file/d/1MiyGThTOl076iXpW5Svd-5Yd-vH8gabF/view?usp=sharing`}>
             <span
               ref={buttonRef}
               className="px-6 py-2.5 flex items-center gap-1 rounded-full bg-red-500 text-white hover:text-white hover:bg-black transition-colors duration-300 text-lg md:text-xl"
