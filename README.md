@@ -43,7 +43,3 @@ A personal portfolio website showcasing projects, skills, and experience, built 
 ## Usage
 
 This portfolio showcases various projects, animations, and personal details. Customize it by modifying the data and components in the project directory to fit your own portfolio needs.
-
-## License
-
-This project is licensed under the MIT License.
