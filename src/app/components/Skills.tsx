@@ -1,93 +1,65 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import Image from "next/image";
 import { gsap } from "gsap";
 
-interface Technology {
-  name: string;
-  src: string;
-}
-
-const technologies: Technology[] = [
-  { name: "React", src: "/react-logo.png" },
-  { name: "Vercel", src: "/vercel-logo.png" },
-  { name: "MongoDB", src: "/mongodb-logo.png" },
-  { name: "Next.js", src: "/nextjs-logo.png" },
-  { name: "TypeScript", src: "/typescript-logo.png" },
-  { name: "JavaScript", src: "/javascript-logo.png" },
-  { name: "GSAP", src: "/gsap-logo.png" },
-  { name: "Python", src: "/python-logo.jpg" },
-  { name: "TensorFlow", src: "/tensorflow-logo.jpg" },
-  { name: "Java", src: "/java-logo.png" },
+const skills = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "JavaScript",
+  "GSAP",
+  "TailwindCSS",
+  "MongoDB",
+  "Postgres",
+  "Prisma",
+  "Docker",
+  "AWS",
+  "EC2",
+  "Cloudflare Workers",
+  "Node.js",
+  "Express",
+  "tRPC",
+  "Python",
+  "TensorFlow",
+  "YOLO",
+  "OpenCV",
+  "TurboRepo",
+  "Recoil",
+  "Rust",
 ];
 
 const Skills: React.FC = () => {
-  const [isClient, setIsClient] = useState(false);
-
   useEffect(() => {
-    setIsClient(true); // Set this to true once the component is mounted on the client
+    const listItems = gsap.utils.toArray(".skill-item");
+    gsap.fromTo(
+      listItems,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: ".skills-container",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   }, []);
-
-  useEffect(() => {
-    if (isClient) {
-      const listItems = gsap.utils.toArray(".tech-item");
-      gsap.fromTo(
-        listItems,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: ".skills-container",
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    }
-  }, [isClient]);
-
-  const handleHover = (index: number) => {
-    gsap.to(`.icon-${index}`, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.3,
-      ease: "power1.inOut",
-    });
-  };
-
-  const handleLeave = (index: number) => {
-    gsap.to(`.icon-${index}`, {
-      opacity: 0,
-      scale: 0.5,
-      duration: 0.3,
-      ease: "power1.inOut",
-    });
-  };
 
   return (
     <div className="skills-container text-center py-10 mt-52">
-      <h2 className="text-3xl md:text-5xl font-playfair tracking-tighter mb-6">Technologies I Use</h2>
-      <ul className="flex flex-wrap justify-center gap-6">
-        {technologies.map((tech, index) => (
-          <li
-            key={index}
-            className="tech-item flex items-center gap-2 text-lg md:text-xl lg:text-2xl relative"
-            onMouseEnter={() => handleHover(index)}
-            onMouseLeave={() => handleLeave(index)}
-          >
-            <Image
-              src={tech.src}
-              alt={tech.name}
-              width={30} // Adjust this size to match the text size
-              height={30}
-              className="object-contain rounded-full"
-            />
-            <span>{tech.name}</span>
+      <h2 className="text-3xl md:text-5xl font-playfair tracking-tighter mb-6">
+        Technologies and Tools I Work With
+      </h2>
+      <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-lg md:text-xl lg:text-2xl">
+        {skills.map((skill, index) => (
+          <li key={index} className="skill-item">
+            {skill}
           </li>
         ))}
       </ul>

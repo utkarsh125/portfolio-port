@@ -10,6 +10,7 @@ import gsap from "gsap";
 const AboutPage: React.FC = () => {
   const buttonRef = useRef<HTMLSpanElement>(null); // Ref for the "Let's Connect" button
   const backButtonRef = useRef<HTMLButtonElement>(null); // Ref for back button
+  const resumeLink = "https://drive.google.com/file/d/1akvaKdYlA7UN1Sb04psCci0ynAOJAtTC/view?usp=sharing";
 
   useEffect(() => {
     if (buttonRef.current) {
@@ -72,7 +73,7 @@ const AboutPage: React.FC = () => {
             className="rounded-xl"
           />
         </div>
-        <p className="text-3xl md:text-4xl mb-8 text-left">
+        <p className="!text-xl md:text-4xl mb-8 text-left">
           I&apos;m Utkarsh Pandey, a Software Engineer specializing in web
           development and machine learning, hailing from the vibrant city of
           Varanasi, India. My journey in tech has been shaped by a passion for
@@ -80,7 +81,7 @@ const AboutPage: React.FC = () => {
           technology and practical applications. With a solid foundation in
           computer science and engineering.
         </p>
-        <p className="text-3xl md:text-4xl text-left mb-12">
+        <p className="!text-xl md:text-4xl text-left mb-12">
           I&apos;ve honed my skills in developing robust web applications and
           implementing machine learning algorithms that drive meaningful outcomes.
           I take pride in my creativity, industriousness, and adaptability,
@@ -102,7 +103,7 @@ const AboutPage: React.FC = () => {
               Let&apos;s connect!
             </span>
           </Link>
-          <Link href={`https://drive.google.com/file/d/1MiyGThTOl076iXpW5Svd-5Yd-vH8gabF/view?usp=sharing`}>
+          <Link href={resumeLink}>
             <span
               ref={buttonRef}
               className="px-6 py-2.5 flex items-center gap-1 rounded-full bg-red-500 text-white hover:text-white hover:bg-black transition-colors duration-300 text-lg md:text-xl"
