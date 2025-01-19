@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 import { Github } from "lucide-react";
-import gsap from "gsap";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -16,18 +15,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  const cardsRef = useRef<HTMLDivElement[]>([]);
-
-  useEffect(() => {
-    cardsRef.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50, scale: 0.8 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power4.out", delay: index * 0.3 }
-      );
-    });
-  }, []);
-
   return (
     <motion.div
       className="projects-container font-inter py-16 px-6 sm:px-10 relative overflow-hidden rounded-3xl"
@@ -53,14 +40,7 @@ const Projects = () => {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="project-card relative border-black p-6 sm:p-8 rounded-lg backdrop-blur-lg bg-[rgba(255,255,255,0.15)] border border-gray-200 hover:shadow-lg transition-all duration-300"
-            ref={(el) => {
-              if (el) cardsRef.current[index] = el;
-            }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
+            className="project-card relative p-6 sm:p-8 rounded-lg backdrop-blur-lg bg-[rgba(255,255,255,0.15)] border border-2 border-black hover:shadow-lg transition-all duration-300"
           >
             <h3 className="text-lg sm:text-xl font-playfair mb-2 text-gray-800">
               {project.name}
