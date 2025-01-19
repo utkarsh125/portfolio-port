@@ -51,7 +51,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="mt-20 mb-32 px-6 sm:px-10 md:mt-40 lg:mt-56 lg:mb-48">
+    <div className="mt-20 mb-20 px-6 sm:px-10 md:mt-40 lg:mt-56 lg:mb-40">
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 text-gray-500 text-lg sm:text-xl">
         <p className="text-center sm:text-left">about me & other things I do</p>
         <Link
@@ -91,7 +91,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      <h1 className="text-2xl sm:text-3xl lg:text-5xl tracking-tighter mt-8 sm:mt-12 text-center sm:text-left">
+      <h1 className="text-2xl sm:text-3xl lg:text-5xl tracking-tighter mt-10 sm:mt-12 lg:mt-32 text-center sm:text-left">
         Crafting tailored solutions with purpose and precision, I thrive on side
         projects that solve specific problems perfectly, focusing on impact over
         flexibility.

@@ -11,13 +11,13 @@ const projects = [
   { name: "DigitalHippo", description: "Ecommerce Application", link: "https://github.com/utkarsh125/ecommerce-app" },
   { name: "Allergen Based Diet Suggestor", description: "Meal plans based on Allergies", link: "https://github.com/utkarsh125/arcane-project" },
   { name: "Hand Sign Recognition", description: "A CNN Model to detect and identify hand signs", link: "https://github.com/utkarsh125/tensorflow-hand-sign-detection" },
-  { name: "SimplyNote", description: "A notetaking application with privacy", link: "https://github.com/utkarsh125/notetaking-app-mern" },
+  // { name: "SimplyNote", description: "A notetaking application with privacy", link: "https://github.com/utkarsh125/notetaking-app-mern" },
 ];
 
 const Projects = () => {
   return (
     <motion.div
-      className="projects-container font-inter py-16 px-6 sm:px-10 relative overflow-hidden rounded-3xl"
+      className="projects-container font-inter py-16 pt-0 px-6 sm:px-10 relative overflow-hidden rounded-3xl"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
