@@ -54,7 +54,10 @@ const Hero = () => {
     <div className="mt-20 mb-32 px-6 sm:px-10 md:mt-40 lg:mt-56 lg:mb-48">
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 text-gray-500 text-lg sm:text-xl">
         <p className="text-center sm:text-left">about me & other things I do</p>
-        <Link href="/about" className="see-more text-red-500 hover:underline flex items-center">
+        <Link
+          href="/about"
+          className="see-more text-red-500 hover:underline flex items-center"
+        >
           <ArrowRight className="ml-1" size={16} />
           <span className="underline">see info</span>
         </Link>
@@ -89,7 +92,9 @@ const Hero = () => {
       </div>
 
       <h1 className="text-2xl sm:text-3xl lg:text-5xl tracking-tighter mt-8 sm:mt-12 text-center sm:text-left">
-        I love working on side projects, especially on applications that solve someone else's problem perfectly and not trying to be flexible to fit everyone's needs.
+        Crafting tailored solutions with purpose and precision, I thrive on side
+        projects that solve specific problems perfectly, focusing on impact over
+        flexibility.
       </h1>
     </div>
   );

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.0.20",
+    "framer-motion": "^11.18.1",
     "gsap": "^3.12.5",
     "lucide-react": "^0.439.0",
     "matter-js": "^0.20.0",

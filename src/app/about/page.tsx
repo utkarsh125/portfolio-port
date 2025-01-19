@@ -65,7 +65,7 @@ const AboutPage: React.FC = () => {
       <div className="flex flex-col items-center">
         <div className="w-full max-w-4xl mb-12">
           <Image
-            src="/profile.png" 
+            src="/back.jpg" 
             alt="Profile Image"
             layout="responsive"
             width={1600} // Aspect ratio width
@@ -73,7 +73,7 @@ const AboutPage: React.FC = () => {
             className="rounded-xl"
           />
         </div>
-        <p className="!text-xl md:text-4xl mb-8 text-left">
+        <p className="!text-xl tracking-tighter md:text-4xl mb-8 text-left">
           I&apos;m Utkarsh Pandey, a Software Engineer specializing in web
           development and machine learning, hailing from the vibrant city of
           Varanasi, India. My journey in tech has been shaped by a passion for
@@ -81,14 +81,14 @@ const AboutPage: React.FC = () => {
           technology and practical applications. With a solid foundation in
           computer science and engineering.
         </p>
-        <p className="!text-xl md:text-4xl text-left mb-12">
-          I&apos;ve honed my skills in developing robust web applications and
+        <p className="!text-xl tracking-tighter md:text-4xl text-left mb-12">
+          {/* I&apos;ve honed my skills in developing robust web applications and
           implementing machine learning algorithms that drive meaningful outcomes.
           I take pride in my creativity, industriousness, and adaptability,
           constantly pushing myself to stay ahead in a rapidly evolving industry.
           Whether it&apos;s designing intuitive user interfaces, optimizing backend
           systems, or crafting intelligent models, I&apos;m dedicated to delivering
-          solutions that make a real impact.
+          solutions that make a real impact. */}
 
           In my spare time, I capture photographs, play videogames and write - unless a side project piques my interest.
         </p>
@@ -98,7 +98,7 @@ const AboutPage: React.FC = () => {
           <Link href={`https://linkedin.com/in/utkarsh125`}>
             <span
               ref={buttonRef}
-              className="px-6 py-3 rounded-full bg-gray-200 text-black hover:text-white hover:bg-black transition-colors duration-300 text-lg md:text-xl"
+              className="px-6 py-3 rounded-full tracking-tighter bg-gray-200 text-black hover:text-white hover:bg-black transition-colors duration-300 text-lg md:text-xl"
             >
               Let&apos;s connect!
             </span>
@@ -106,7 +106,7 @@ const AboutPage: React.FC = () => {
           <Link href={resumeLink}>
             <span
               ref={buttonRef}
-              className="px-6 py-2.5 flex items-center gap-1 rounded-full bg-red-500 text-white hover:text-white hover:bg-black transition-colors duration-300 text-lg md:text-xl"
+              className="px-6 py-2.5 flex items-center tracking-tighter gap-1 rounded-full bg-red-500 text-white hover:text-white hover:bg-black transition-colors duration-300 text-lg md:text-xl"
             >
               <FileText className=""/>Resume
             </span>

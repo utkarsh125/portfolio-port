@@ -2,10 +2,12 @@
 
 import React, { useEffect, useRef } from "react";
 
+import { Github } from "lucide-react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 
 const projects = [
-  { name: "Payments", description: "A fully structured payment application", link: "https://github.com/utkarsh125/payments-app" },
+  { name: "[wip]Payments", description: "A fully structured payment application", link: "https://github.com/utkarsh125/payments-app" },
   { name: "Serverless Blog", description: "Cloudflare Workers based Blogging App", link: "https://github.com/utkarsh125/medium-serverless" },
   { name: "DigitalHippo", description: "Ecommerce Application", link: "https://github.com/utkarsh125/ecommerce-app" },
   { name: "Allergen Based Diet Suggestor", description: "Meal plans based on Allergies", link: "https://github.com/utkarsh125/arcane-project" },
@@ -20,68 +22,83 @@ const Projects = () => {
     cardsRef.current.forEach((card, index) => {
       gsap.fromTo(
         card,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", delay: index * 0.2 }
+        { opacity: 0, y: 50, scale: 0.8 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power4.out", delay: index * 0.3 }
       );
-
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, {
-          scale: 1.05,
-          background: "linear-gradient(to right, #6a11cb, #2575fc)",
-          boxShadow: "0 10px 20px rgba(106, 17, 203, 0.5)",
-          duration: 0.4,
-          ease: "power2.out",
-        });
-      });
-
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, {
-          scale: 1,
-          background: "#1a1a1a",
-          boxShadow: "none",
-          duration: 0.4,
-          ease: "power2.in",
-        });
-      });
     });
   }, []);
 
   return (
-    <div className="projects-container bg-black text-white py-20 px-6 sm:px-10 rounded-3xl">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-playfair mb-10 text-center">://Projects</h1>
-      <div className="flex flex-col gap-8">
+    <motion.div
+      className="projects-container font-inter py-16 px-6 sm:px-10 relative overflow-hidden rounded-3xl"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <motion.div
+        className="absolute inset-0 -z-10 animate-flowing-water"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      />
+      <motion.h1
+        className="font-playfair text-3xl sm:text-4xl lg:text-5xl mb-10 text-center text-gray-900"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        ://Projects
+      </motion.h1>
+      <div className="flex flex-col gap-6 bg-rose-100 p-5 md:p-10 rounded-xl border-2 border-black">
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            className="project-card relative p-6 sm:p-8 rounded-2xl bg-[#1a1a1a] transition-all duration-300 hover:scale-105"
+            className="project-card relative border-black p-6 sm:p-8 rounded-lg backdrop-blur-lg bg-[rgba(255,255,255,0.15)] border border-gray-200 hover:shadow-lg transition-all duration-300"
             ref={(el) => {
               if (el) cardsRef.current[index] = el;
             }}
-            style={{
-              overflow: "hidden",
-            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
           >
-            <h3 className="text-xl sm:text-2xl font-bold mb-4">{project.name}</h3>
-            <p className="text-sm sm:text-base lg:text-lg mb-6">{project.description}</p>
+            <h3 className="text-lg sm:text-xl font-playfair mb-2 text-gray-800">
+              {project.name}
+            </h3>
+            <p className="text-sm sm:text-base text-gray-700 mb-4">
+              {project.description}
+            </p>
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block text-sm sm:text-lg font-medium text-[#cccccc] border border-[#cccccc] rounded-full px-4 sm:px-6 py-2 hover:bg-white hover:text-black transition-all duration-300"
+              className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-full px-4 py-2 hover:bg-blue-600 hover:text-white transition-all duration-300"
             >
-              View Project
+              <Github size={16} />
+              GitHub
             </a>
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500 opacity-0 rounded-2xl"
-              style={{
-                zIndex: -1,
-              }}
-            />
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default Projects;
+
+<style jsx>{`
+  @keyframes flowing-water {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-flowing-water {
+    background: linear-gradient(270deg, #00c6ff, #0072ff, #00c6ff);
+    background-size: 200% 100%;
+    animation: flowing-water 5s linear infinite;
+  }
+`}</style>

@@ -28,6 +28,7 @@ const skills = [
   "TurboRepo",
   "Recoil",
   "Rust",
+  "SQL"
 ];
 
 const Skills: React.FC = () => {
@@ -58,7 +59,7 @@ const Skills: React.FC = () => {
       </h2>
       <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-lg md:text-xl lg:text-2xl">
         {skills.map((skill, index) => (
-          <li key={index} className="skill-item">
+          <li key={index} className="skill-item tracking-tighter">
             {skill}
           </li>
         ))}
