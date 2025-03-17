@@ -6,11 +6,13 @@ import { Github } from "lucide-react";
 import { motion } from "framer-motion";
 
 const projects = [
-  { name: "[wip]Payments", description: "A fully structured payment application", link: "https://github.com/utkarsh125/payments-app" },
+  { name: "[wip]Git-Intel", description: "A fullstack SaaS to get Github insights", link: "https://github.com/utkarsh125/git-intel" },
+  { name: "shellmancer", description: "A CLI tool for task automation (powered by Gemini)", link: "https://github.com/utkarsh125/shellmancer" },
+  { name: "Payments", description: "A fully structured payment application", link: "https://github.com/utkarsh125/payments-app" },
   { name: "Serverless Blog", description: "Cloudflare Workers based Blogging App", link: "https://github.com/utkarsh125/medium-serverless" },
   { name: "DigitalHippo", description: "Ecommerce Application", link: "https://github.com/utkarsh125/ecommerce-app" },
-  { name: "Allergen Based Diet Suggestor", description: "Meal plans based on Allergies", link: "https://github.com/utkarsh125/arcane-project" },
-  { name: "Hand Sign Recognition", description: "A CNN Model to detect and identify hand signs", link: "https://github.com/utkarsh125/tensorflow-hand-sign-detection" },
+  // { name: "Allergen Based Diet Suggestor", description: "Meal plans based on Allergies", link: "https://github.com/utkarsh125/arcane-project" },
+  // { name: "Hand Sign Recognition", description: "A CNN Model to detect and identify hand signs", link: "https://github.com/utkarsh125/tensorflow-hand-sign-detection" },
   // { name: "SimplyNote", description: "A notetaking application with privacy", link: "https://github.com/utkarsh125/notetaking-app-mern" },
 ];
 
