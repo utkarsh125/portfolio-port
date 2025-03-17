@@ -1,5 +1,5 @@
 
-Portfolio
+# Portfolio
 
 A personal portfolio website showcasing projects, skills, and experience, built with modern web technologies including GSAP, Tailwind CSS, Next.js, and TypeScript.
 
