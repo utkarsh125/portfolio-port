@@ -1,6 +1,9 @@
-# Portfolio
+
+Portfolio
 
 A personal portfolio website showcasing projects, skills, and experience, built with modern web technologies including GSAP, Tailwind CSS, Next.js, and TypeScript.
+
+# ![751shots_so](https://github.com/user-attachments/assets/81d433c9-688a-41e7-9da9-4406d9978fc1)
 
 ## Features
 
