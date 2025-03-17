@@ -78,7 +78,7 @@ const Footer = () => {
           <span>GitHub</span>
         </Link>
         <Link
-          href="https://drive.google.com/file/d/1a9_VGaWszR36ImKb5P7WfbyNr_ne8i2m/view?usp=sharing"
+          href="https://drive.google.com/file/d/1mOeJLytTa0KE9qzSjH6SKWVWKKQFz6Zo/view?usp=sharing"
           className="social-btn tracking-tighter flex items-center px-6 py-3 bg-red-500 text-white text-sm sm:text-lg rounded-full transform transition-transform"
         >
           <span>Resume</span>
