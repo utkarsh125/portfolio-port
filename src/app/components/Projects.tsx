@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const projects = [
   { name: "[wip]Git-Intel", description: "A fullstack SaaS to get Github insights", link: "https://github.com/utkarsh125/git-intel" },
   { name: "shellmancer", description: "A CLI tool for task automation (powered by Gemini)", link: "https://github.com/utkarsh125/shellmancer" },
+  { name: "AutoMail AI", description: "AI Powered Email Client Web Application", link: "https://github.com/utkarsh125/automail-ai" },
   { name: "Payments", description: "A fully structured payment application", link: "https://github.com/utkarsh125/payments-app" },
   { name: "Serverless Blog", description: "Cloudflare Workers based Blogging App", link: "https://github.com/utkarsh125/medium-serverless" },
   { name: "DigitalHippo", description: "Ecommerce Application", link: "https://github.com/utkarsh125/ecommerce-app" },
