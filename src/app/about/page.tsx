@@ -10,7 +10,7 @@ import gsap from "gsap";
 const AboutPage: React.FC = () => {
   const buttonRef = useRef<HTMLSpanElement>(null); // Ref for the "Let's Connect" button
   const backButtonRef = useRef<HTMLButtonElement>(null); // Ref for back button
-  const resumeLink = "https://drive.google.com/file/d/1akvaKdYlA7UN1Sb04psCci0ynAOJAtTC/view?usp=sharing";
+  const resumeLink = "https://drive.google.com/file/d/1a9_VGaWszR36ImKb5P7WfbyNr_ne8i2m/view?usp=sharing";
 
   useEffect(() => {
     if (buttonRef.current) {
