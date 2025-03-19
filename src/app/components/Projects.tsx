@@ -32,7 +32,7 @@ const Projects = () => {
         transition={{ duration: 1.5 }}
       />
       <motion.h1
-        className="font-playfair text-3xl sm:text-4xl lg:text-5xl mb-10 text-center text-gray-900"
+        className="font-poppins text-3xl sm:text-4xl lg:text-5xl mb-10 text-center text-gray-900"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -43,9 +43,9 @@ const Projects = () => {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="project-card relative p-6 sm:p-8 rounded-lg backdrop-blur-lg bg-[rgba(255,255,255,0.15)] border border-2 border-black hover:shadow-lg transition-all duration-300"
+            className="project-card relative p-6 sm:p-8 rounded-lg backdrop-blur-lg bg-[rgba(255,255,255,0.15)] border-2 border-black hover:shadow-lg transition-all duration-300"
           >
-            <h3 className="text-lg sm:text-xl font-playfair mb-2 text-gray-800">
+            <h3 className="text-lg sm:text-xl font-poppins mb-2 text-gray-800">
               {project.name}
             </h3>
             <p className="text-sm sm:text-base text-gray-700 mb-4">

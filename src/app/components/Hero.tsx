@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
@@ -91,11 +92,14 @@ const Hero = () => {
         </svg>
       </div>
 
-      <h1 className="text-2xl sm:text-3xl lg:text-5xl tracking-tighter mt-10 sm:mt-12 lg:mt-32 text-center sm:text-left">
-        Crafting tailored solutions with purpose and precision, I thrive on side
-        projects that solve specific problems perfectly, focusing on impact over
-        flexibility.
-      </h1>
+      <div className="flex flex-col items-center justify-center">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl tracking-tighter mt-10 sm:mt-12 lg:mt-32 text-center sm:text-left">
+          Crafting tailored solutions with purpose and precision, I thrive on
+          side projects that solve specific problems perfectly, focusing on
+          impact over flexibility.
+        </h1>
+        <Image alt="adv2" className="block md:hidden mt-6" src={`/adv2.png`} width={250} height={250} />
+      </div>
     </div>
   );
 };

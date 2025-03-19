@@ -16,8 +16,8 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily:{
-        inter: ["Inter", "sans-serif"],
-        playfair: ["Playfair Display", "serif"]
+        sans: ["var(--font-poppins)", "sans-serif"],
+        playfair: ["var(--font-playfair)", "serif"],
       }
     },
   },
