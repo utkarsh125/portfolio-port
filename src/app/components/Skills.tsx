@@ -54,7 +54,7 @@ const Skills: React.FC = () => {
 
   return (
     <div className="skills-container text-center py-10 mt-20">
-      <h2 className="text-3xl md:text-5xl font-playfair tracking-tighter mb-14">
+      <h2 className="text-3xl font-poppins md:text-5xl tracking-tighter mb-14">
         Technologies and Tools I Work With
       </h2>
       <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-lg md:text-xl lg:text-2xl">
