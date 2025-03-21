@@ -90,7 +90,7 @@ const AboutPage: React.FC = () => {
           systems, or crafting intelligent models, I&apos;m dedicated to delivering
           solutions that make a real impact. */}
 
-          In my spare time, I capture photographs, play videogames and write - unless a side project piques my interest.
+          In my spare time, I capture photographs, play videogames and write - unless a project piques my interest.
         </p>
 
         <div className="w-full flex items-center gap-2 justify-start mt-10">
